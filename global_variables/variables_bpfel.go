@@ -54,7 +54,7 @@ type variablesSpecs struct {
 //
 // It can be passed ebpf.CollectionSpec.Assign.
 type variablesProgramSpecs struct {
-	ConstExample *ebpf.ProgramSpec `ebpf:"const_example"`
+	GlobalExample *ebpf.ProgramSpec `ebpf:"global_example"`
 }
 
 // variablesMapSpecs contains maps before they are loaded into the kernel.
@@ -67,7 +67,7 @@ type variablesMapSpecs struct {
 //
 // It can be passed ebpf.CollectionSpec.Assign.
 type variablesVariableSpecs struct {
-	ConstU32 *ebpf.VariableSpec `ebpf:"const_u32"`
+	GlobalU16 *ebpf.VariableSpec `ebpf:"global_u16"`
 }
 
 // variablesObjects contains all objects after they have been loaded into the kernel.
@@ -100,19 +100,19 @@ func (m *variablesMaps) Close() error {
 //
 // It can be passed to loadVariablesObjects or ebpf.CollectionSpec.LoadAndAssign.
 type variablesVariables struct {
-	ConstU32 *ebpf.Variable `ebpf:"const_u32"`
+	GlobalU16 *ebpf.Variable `ebpf:"global_u16"`
 }
 
 // variablesPrograms contains all programs after they have been loaded into the kernel.
 //
 // It can be passed to loadVariablesObjects or ebpf.CollectionSpec.LoadAndAssign.
 type variablesPrograms struct {
-	ConstExample *ebpf.Program `ebpf:"const_example"`
+	GlobalExample *ebpf.Program `ebpf:"global_example"`
 }
 
 func (p *variablesPrograms) Close() error {
 	return _VariablesClose(
-		p.ConstExample,
+		p.GlobalExample,
 	)
 }
 
