@@ -1,8 +1,6 @@
-module ebpf-test
+module bee_daemon
 
-go 1.25.7
-
-tool github.com/cilium/ebpf/cmd/bpf2go
+go 1.25.5
 
 require github.com/cilium/ebpf v0.20.0
 
